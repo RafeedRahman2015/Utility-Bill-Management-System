@@ -1,0 +1,27 @@
+<?php
+ $arr = array();
+ $arr2=array("rafeed"=>3.96,"mehfuz" =>3.77);
+   for($i=0;$i<=2;$i++){
+   $arr[$i]=$i;
+
+   }
+   	print_r($arr);
+   	print_r($arr2);
+$read=array();
+$i=0;
+  include 'connector.php';
+  $sql='select reading from electricityreading where id=2 order by date asc';
+  $result=mysqli_query($conn,$sql);
+  while($row=mysqli_fetch_array($result)){
+    $read[$i]=$row['reading'];
+    $i++ ;
+     }
+     echo "<br/>";
+     print_r($read);
+
+?>
+<script type="text/javascript">
+	  var arrah=<?php echo json_encode($arr)?>;
+	   document.write("JS OUTPUT"+arrah);
+
+</script>
